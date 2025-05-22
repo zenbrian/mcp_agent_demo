@@ -1,0 +1,7 @@
+fastapi==0.115.12
+langchain_mcp_adapters==0.1.1
+langchain_openai==0.3.17
+langgraph==0.4.5
+mcp==1.9.0
+pydantic==2.11.4
+uvicorn==0.34.2

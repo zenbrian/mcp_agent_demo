@@ -1,0 +1,327 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #00C4BB;
+  --primary-dark: #00A3A0;
+  --primary-light: #4DD8D0;
+  --secondary-color: #3CB4F7;
+  --accent-color: #63EAB1;
+  --bg-color: #F8F8F8;
+  --bg-gray: #F0F0F0;
+  --text-color: #333333;
+  --text-light: #666666;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  background-color: var(--bg-gray);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* 聊天泡泡的過渡效果 */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 確保訊息區域始終可見 */
+.message-content {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* 頂部導航欄 */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* 底部操作欄 */
+.input-container {
+  background-color: white;
+  border-top: 1px solid var(--bg-gray);
+  padding: 1rem;
+  position: relative;
+}
+
+/* 聊天區域 */
+.chat-container {
+  background-color: var(--bg-color);
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 用戶訊息樣式 */
+.user-message {
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 16px 16px 0 16px;
+  padding: 10px 15px;
+  display: inline-block;
+  max-width: 80%;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* AI訊息樣式 */
+.ai-message {
+  background-color: white;
+  color: var(--text-color);
+  border-radius: 16px 16px 16px 0;
+  padding: 10px 15px;
+  display: inline-block;
+  max-width: 80%;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* 輸入框樣式 */
+.input-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.input-field {
+  flex: 1;
+  border: none;
+  padding: 12px 15px;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+}
+
+.send-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s;
+}
+
+.send-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.send-button:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* 漢堡菜單按鈕 */
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 8px;
+  color: var(--text-light);
+}
+
+/* 漢堡菜單下拉內容 */
+.menu-dropdown {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  padding: 8px 0;
+  min-width: 180px;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+/* 語音輸入按鈕 */
+.voice-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 4px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-button:hover {
+  color: var(--primary-color);
+}
+
+/* 工具調用樣式 */
+.tool-status {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.tool-status-header {
+  background-color: var(--bg-gray);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tool-status-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tool-status-content {
+  padding: 16px;
+}
+
+.tool-item {
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--bg-gray);
+  padding-bottom: 16px;
+}
+
+.tool-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tool-name {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tool-badge {
+  background-color: var(--primary-light);
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.tool-section {
+  background-color: var(--bg-gray);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.tool-section h4 {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: normal;
+}
+
+.tool-section pre {
+  margin: 0;
+  font-size: 12px;
+  overflow-x: auto;
+  color: var(--text-color);
+}
+
+/* 歡迎訊息 */
+.welcome-message {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.welcome-message h2 {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.welcome-message p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.welcome-icon {
+  font-size: 48px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}

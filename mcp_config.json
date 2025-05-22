@@ -1,0 +1,19 @@
+{
+    "mcpServers": {
+        "student_profile": {
+                "command": "python",
+                "args": ["mcp_servers/student_profile.py"],
+                "transport": "stdio"
+            },
+        "professor_profile": {
+                "command": "python",
+                "args": ["mcp_servers/professor_profile.py"],
+                "transport": "stdio"
+            },
+        "caculator": {
+            "command": "python",
+            "args": ["mcp_servers/caculator.py"],
+            "transport": "stdio"
+        }
+    }
+}
