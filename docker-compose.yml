@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: mcp-agent-api
+    ports:
+      - "10001:8000"
+    env_file:
+      - .env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./static
+      dockerfile: Dockerfile
+    container_name: mcp-agent-frontend
+    ports:
+      - "10002:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:10001
+    depends_on:
+      - api
+    restart: unless-stopped

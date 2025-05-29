@@ -5,7 +5,7 @@ import Message from './components/Message';
 import ToolCallsStatus from './components/ToolCallsStatus';
 
 // API URL 配置
-const API_URL = 'http://localhost:8000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 function App() {
   const [messages, setMessages] = useState([]);

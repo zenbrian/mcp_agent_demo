@@ -16,6 +16,13 @@ load_dotenv()
 
 # === MCP CONFIG ===
 def load_mcp_config(config_path="mcp_config.json"):
+    import os
+    # 獲取當前腳本所在的目錄
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # 構建配置檔案的絕對路徑
+    if not os.path.isabs(config_path):
+        config_path = os.path.join(current_dir, config_path)
+    
     try:
         with open(config_path, "r", encoding="utf-8") as file:
             return json.load(file)
