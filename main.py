@@ -112,17 +112,19 @@ async def run_agent_endpoint(request: AgentRequest) -> AgentResponse:
     
     return response
 
-# 清除所有對話記憶
+# 只保留第一筆對話記憶
 @app.delete("/clear-memory")
 async def clear_memory():
     global conversation_memory
-    conversation_memory = []
-    return {"status": "success", "message": "Conversation memory cleared"}
+    if conversation_memory:
+        conversation_memory = [conversation_memory[0]]
+    return {"status": "success", "message": "Conversation memory cleared except first entry"}
 
 # 獲取當前對話記憶
 @app.get("/get-memory")
 async def get_memory():
     global conversation_memory
+    print(type(conversation_memory))
     return {"memory": conversation_memory}
 
 
